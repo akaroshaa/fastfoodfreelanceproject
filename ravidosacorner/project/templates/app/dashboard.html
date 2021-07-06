@@ -1,0 +1,22 @@
+{% extends "app/base.html" %}
+
+{% block body %}
+
+    {% if request.user.is_superuser %}
+    <h5 class="text-center">Add a FoodItem</h5><br>   
+        <form method="POST" action="" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {% for field in form %}
+                {{ field.label_tag }} {{ field }} <font color="red">{{ field.errors|striptags }}</font><br>
+            {% endfor %}
+        </div><br>
+        <div class="text-center">
+            <button class="btn btn-primary">Add</button>
+        </div>
+        </form>
+    {% else %}
+        <h5>Only Admin can add Food Items</h5><br>
+    {% endif %}
+
+{% endblock body %}

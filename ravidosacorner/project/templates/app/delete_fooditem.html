@@ -1,0 +1,12 @@
+{% extends "app/base.html" %}
+
+{% block body %}
+<h5>Are You Sure you want to delete "{{ special.name }}"?</h5><br>
+
+<form method="POST" action="" novalidate>
+    {% csrf_token %}
+    <button class="btn btn-primary">Confirm Delete</button>
+    <a href="{% url 'specials' %}" class="btn btn-primary">Cancel</a>
+</form>
+
+{% endblock body %}

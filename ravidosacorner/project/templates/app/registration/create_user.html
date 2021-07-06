@@ -1,0 +1,19 @@
+{% extends "app/base.html" %}
+
+{% block body %}
+
+    <h5>Fill in your details</h5><br>
+
+    <form method="POST" action="" novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }} <font color="red">{{ field.errors|striptags }}</font><br>
+        {% endfor %}
+    </div><br>
+    <div class="text-center">
+        <button class="btn btn-primary">Register</button>
+    </div>
+    </form>
+
+{% endblock body %}

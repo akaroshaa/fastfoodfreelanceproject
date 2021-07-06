@@ -1,0 +1,41 @@
+{% extends "app/base.html" %}
+
+{% block body %}
+
+<style>
+
+.col-md-3
+{
+margin-left:-4px;
+}
+
+.card-img-top
+{
+width: 260px;
+height: 250px;
+}
+
+</style>
+
+    <h5 class="text-center">Our Special Dishes</h5><br>
+
+        {% for special in specials %}
+        <div class="col-xs-3 col-sm-3 col-md-3" style="display: inline-block;">
+            <div class="card align-items-center mt-2">
+                <img class="card-img-top" src="/media/{{ special.picture }}" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-dark">&#x20B9; {{ special.price }}</h5>
+                    <h5 class="card-title text-dark">{{ special.name }}</h5>
+                    <p class="card-text text-dark">{{ special.description }}</p>
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'update' pk=special.id %}" class="btn btn-primary">Update</a>
+                    <a href="{% url 'delete' pk=special.id %}" class="btn btn-primary">Delete</a>
+                    {% else %}
+                    <a href="http://wa.me/919868575943/" target="_blank" class="btn btn-primary">Buy</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}    
+
+{% endblock body %}

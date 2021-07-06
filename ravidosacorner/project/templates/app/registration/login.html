@@ -1,0 +1,29 @@
+{% extends "app/base.html" %}
+
+{% block body %}
+
+    {% load static %}
+
+    <h3>Login Form</h3>
+    <br><br>
+    <form method="POST" action="" novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }} <font color="red">{{ field.errors|striptags }}</font><br>
+        {% endfor %}
+    </div><br>
+    <div class="text-center">
+        <button class="btn btn-primary mx-2">Login</button>
+        <a href="{% url 'password_reset' %}" class="btn btn-primary mx-2">Forgot Password</a>
+    </div><br>
+    <div class="text-center">
+        <a href="{% url 'signup' %}">Need an account?</a>
+    </div><br>
+    <div class="text-center">Need Help?
+        &emsp;<a href="mailto://akaroshaa@gmail.com/" target="_blank"><img src="{% static 'app/images/gmail.png' %}" width="22" height="22" alt="gmail logo here" /></a>
+        &emsp;<a href="http://wa.me/919868575943/" target="_blank"><img src="{% static 'app/images/whatsapp.png' %}" width="30" height="30" alt="whatsapp logo here" /></a>
+    </div>
+    </form>
+
+{% endblock body %}

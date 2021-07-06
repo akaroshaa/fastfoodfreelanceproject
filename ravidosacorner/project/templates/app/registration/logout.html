@@ -1,0 +1,12 @@
+{% extends "app/base.html" %}
+
+{% block body %}
+<div class="container">
+    <br><br>
+    <h3>Logged Out</h3><br><br>
+
+    <a href="{% url 'login' %}"><button class="btn btn-primary btn-sm">Login Again</button></a>
+    
+</div>
+
+{% endblock body %}
