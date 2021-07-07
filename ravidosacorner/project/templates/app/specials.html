@@ -22,7 +22,7 @@ height: 250px;
         {% for special in specials %}
         <div class="col-xs-3 col-sm-3 col-md-3" style="display: inline-block;">
             <div class="card align-items-center mt-2">
-                <img class="card-img-top" src="/media/{{ special.picture }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ special.picture.url }}" alt="Card image cap">
                 <div class="card-body text-center">
                     <h5 class="card-title text-dark">&#x20B9; {{ special.price }}</h5>
                     <h5 class="card-title text-dark">{{ special.name }}</h5>
